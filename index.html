@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="first-input" type="text" name="first-input" placeholder="Enter your first value">
+    <input class="second-input" type="text" name="second-input" placeholder="Enter your second value">
+    <input class="third-input" type="text" name="third-input" placeholder="Enter your third value">
+    <button onclick="getInputValues()">Confirm</button>
+
+    <script>
+        function getInputValues() {
+            const firstValue = document.querySelector('.first-input').value;
+            const secondValue = document.querySelector('.second-input').value;
+            const thirdValue = document.querySelector('.third-input').value;
+
+            console.log(`firstValue = ${firstValue}, ` + `secondValue = ${secondValue}, ` + `thirdValue = ${thirdValue}`);
+        }
+    </script>
+</body>
+</html>
