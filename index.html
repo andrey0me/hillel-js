@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="some-number" type="number" name="some-number" id="some-number" placeholder="Enter your number">
+    <button onclick="splitnumber(document.getElementById('some-number').value)">Confirm</button>
+    <script>
+        function splitnumber(value) {
+            let resStr = "";
+            for (let i = 0; i < value.length; i++) {
+                resStr = resStr + " " + value.charAt(i);
+            }
+
+            console.log(resStr);
+        }
+    </script>
+</body>
+
+</html>
