@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let someNumber = prompt("Введите число");
+
+        function isSameDigits(value) {
+            let res;
+            
+            if (isNaN(value)) {
+                alert("Вы ввели не число");
+            }
+            else if (value.length != 3) {
+                alert("Вы ввели число более 3-х знаков");
+            }
+            else if ((value.charAt(0) == value.charAt(1)) && (value.charAt(1) == value.charAt(2))) {
+                alert("Все цифри однаковые");
+            }
+            else if ((value.charAt(0) == value.charAt(1)) || (value.charAt(1) == value.charAt(2)) || (value.charAt(0) == value.charAt(2))) {
+                alert("Две цифры одинаковые");
+            }
+            else {
+                alert("Все цифры рвзные");
+            }
+        }
+
+        isSameDigits(someNumber);
+
+    </script>
+</body>
+
+</html>
