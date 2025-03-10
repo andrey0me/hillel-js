@@ -10,7 +10,13 @@
 <body>
     <script>
         let name = prompt("Введите имя");
-        alert(`Hello, ${name}! How are you?`);
+        if ((name !== null) && (name !== '')) {
+            alert(`Hello, ${name}! How are you?`);
+        } 
+        else {
+            alert(`Вы не ввели Имя`);
+        }
+        
     </script>
 </body>
 
