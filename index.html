@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let age = prompt("Вкажіть рік народження");
+        let city = prompt("Вкажіть місто проживання");
+        let sport = prompt("Вкажіть улюблений вид спорту");
+
+        console.log(age);
+
+        const sports = [
+            { sportName: "футбол", sportPlayer: "Ліонель Мессі" },
+            { sportName: "баскетбол", sportPlayer: "Майкл Джордан" },
+            { sportName: "біг", sportPlayer: "Усейн Болт" }
+        ]
+
+        let textAlert;
+
+        if (age === null) {
+            textAlert = textAlert ? textAlert + `\nШкода, що Ви не захотіли ввести свій вік` : `Шкода, що Ви не захотіли ввести свій вік.`;
+        }
+
+        if (city === null) {
+            textAlert = textAlert ? textAlert + `\nШкода, що Ви не захотіли ввести своє місто проживання` : `Шкода, що Ви не захотіли ввести своє місто проживання.`;
+        }
+        else {
+            if (city.trim() == "Київ" || city.trim() == "Вашингтон" || city.trim() == "Лондон") {
+                textAlert = textAlert ? textAlert + `\nТи живеш у столиці ${city.trim()}` : `Ти живеш у столиці ${city.trim()}`;
+            }
+            else {
+                textAlert = textAlert ? textAlert + `\nТи живеш у місті ${city.trim()}` : `Ти живеш у місті ${city.trim()}`;
+            }
+        }
+
+        if (sport === null) {
+            textAlert = textAlert ? textAlert + `\nШкода, що Ви не захотіли ввести свій улюблений вид спорту` : `Шкода, що Ви не захотіли ввести свій улюблений вид спорту.`;
+        }
+        else {
+            let checkedSport = sports.find(item => item.sportName === sport);
+
+            if (checkedSport) {
+                textAlert = textAlert ? textAlert + `\nКруто! Хочеш стати ${checkedSport.sportPlayer}?` : `Круто! Хочеш стати ${checkedSport.sportPlayer}?`;
+            }
+        }
+
+        alert(textAlert);
+
+    </script>
+</body>
+
+</html>
