@@ -10,28 +10,18 @@
 <body>
 
     <script>
-        let n = prompt('Введите любое число');
+        let baseStr = prompt("Введіть рядок");
+        let delChars = prompt("Введіть символи для видалення").split("");
 
-        function isPrimeNumber(n) {
-            if (n <= 1) {
-                return 'Число должно быть больше 1';
+        console.log(clearStr(baseStr, delChars));
+
+        function clearStr(baseStr, delChars) {
+            for (let i = 0; i < delChars.length; i++) {
+                baseStr = baseStr.replace(delChars[i], "")
             }
 
-            for (let i = 2; i < n; i++) { // проверить, делится ли число..
-                if (n % i == 0) return 'Составное число'; // не подходит, берём следующее
-            }
-
-            return 'Простое число';
-        }
-
-        if (isNaN(n) || n === null) {
-            alert("Некорректный ввод");
-        }
-        else {
-            alert(isPrimeNumber(n));
-        }
-
-
+            return baseStr;
+        };
     </script>
 </body>
 
