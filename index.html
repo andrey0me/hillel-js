@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let str = prompt("Введіть рядок").split("");
+
+        function avgFromStr(str) {
+            let avg;
+            let tSum = 0;
+            let nCounter = 0;
+
+            for (let i = 0; i < str.length; i++) {
+
+                if (isNaN(str[i]) === false) {
+                    tSum+=Number(str[i]);
+                    nCounter++;
+                }
+            }
+            avg = tSum / nCounter;
+
+            return avg;
+
+        }
+
+        console.log(avgFromStr(str));
+
+    </script>
+</body>
+
+</html>
