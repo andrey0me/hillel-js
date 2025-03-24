@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function multiplyNumbers(x) {
+            return function (y) {
+                return x * y;
+            }
+        }
+
+        let x1 = prompt('Введіть перший множник');
+        let y1 = prompt('Введіть другий множник');
+
+        alert4(multiplyNumbers(x1)(y1));
+
+    </script>
+</body>
+
+</html>
