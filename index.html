@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function sumNumbers() {
+            let totalSum = 0;
+
+            function add(someNum) {
+                    return totalSum += someNum;
+                };
+            
+            return add;
+        }
+
+        let sum1 = sumNumbers()
+
+        console.log(sum1(4)); // 4
+
+        console.log(sum1(6)); // 10
+
+        console.log(sum1(10)); // 20
+
+        console.log(sum1(7)); // 27
+
+    </script>
+</body>
+
+</html>
