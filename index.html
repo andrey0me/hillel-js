@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let company = {
+            sales: [{ name: "John", salary: 1000 }, { name: "Alice", salary: 600 },{ name: "Alina", salary: 1600 }],
+            development: {
+                web: [{ name: "Peter", salary: 2000 }, { name: "Alex", salary: 1800 }],
+                internals: [{ name: "Jack", salary: 1300 },{ name: "Andrey", salary: 2300 }]
+            }
+        };
+
+        function salarySum(obj) {
+            let sum = 0;
+            for (let value in obj) {
+                objValue = obj[value];
+                if (Array.isArray(objValue)) {
+                    sum += objValue.reduce((a, b) => a + b.salary, 0);
+                }
+                else { 
+                    sum += salarySum(objValue);
+                }
+            }
+
+            return sum;
+        };
+
+        console.log(`Загальна заробітна плата всіх користувачів = ${salarySum(company)}`);
+
+    </script>
+</body>
+
+</html>
