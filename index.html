@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let contactBook = {
+            contacts: [{ name: "Andrey", phone: "+3806611111111", email: "some.andr@gmail.com" }], 
+            searchByName(name) { console.log(this.contacts.find(contact => contact.name === name))},
+            addContact(newContact) {this.contacts.push(newContact)}
+        }
+
+        contactBook.addContact({ name: "Ivan", phone: "+380660000000", email: "some.iv@gmail.com" });
+    
+        console.log(contactBook);
+
+        console.log(contactBook.searchByName("Ivan"));
+    </script>
+</body>
+
+</html>
