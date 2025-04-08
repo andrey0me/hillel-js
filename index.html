@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let user = {
+            name: "Andrey",
+            age: 29,
+            city: "Dnipro"
+        };
+
+        function getUserData(obj) {
+            return Object.entries(obj)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join('\n');
+        }
+        
+        alert(getUserData(user));
+    </script>
+</body>
+
+</html>
