@@ -1,0 +1,36 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.body {
+    font-family: 'Cera Pro', sans-serif;
+    margin-top: 30px;
+}
+
+.visual-hiden {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1220px;
+    padding: 0 10px;
+}
+
+.pif-td-js {
+    padding: 5px;
+}
+
+.pif-td-header-js {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
