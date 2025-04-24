@@ -85,9 +85,14 @@ formEl.addEventListener("submit", function (event) {
 
     if (isFormValid) {
         const formData = new FormData(formEl);
+        
+        /*текст*/ 
         for (let [key, value] of formData.entries()) {
             console.log(`${key}: ${value}`);
           }
+
+        /*json*/
+        console.log(JSON.stringify(Object.fromEntries(formData)));
     }
 })
 
