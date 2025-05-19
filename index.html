@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="body">
+    <div class="wrapper">
+        <div class="weather-container">
+        <div class="header">
+            <span id="date"></span>
+            <div class="sun-info">
+                <span id="sunrise"></span>
+                <span id="sunset"></span>
+            </div>
+        </div>
+        <div class="main">
+            <div class="time-temp">
+                <span id="time" class="time"></span>
+                <span id="temp" class="temp"></span>
+            </div>
+            <div class="description">
+                <img id="weather-icon" class="weather-icon" alt="Weather Icon">
+                <span id="description"></span>
+                <span id="feels-like"></span>
+            </div>
+        </div>
+        <div class="details">
+            <span id="humidity"></span>
+            <span id="pressure"></span>
+            <span id="wind"></span>
+        </div>
+        <div id="geoError" class="error" style="display: none;">
+            Геолокация заблокирована. Разрешите доступ в настройках браузера.
+        </div>
+    </div>
+    <button onclick="getWeatherData()">Обновить</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
