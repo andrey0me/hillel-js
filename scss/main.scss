@@ -229,3 +229,10 @@ h1, h2 {
   width: 95px;
   padding: 10px;
 }
+
+.todo-item--checked.list-group-item-action:not(.active):hover, .todo-item--checked.list-group-item-action:not(.active):focus {
+  z-index: 1;
+  color: var(--bs-list-group-action-hover-color);
+  text-decoration: line-through;
+  background-color: var(--bs-list-group-action-hover-bg);
+}
