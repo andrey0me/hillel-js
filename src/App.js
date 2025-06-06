@@ -79,7 +79,7 @@ class App extends Component {
               onClick={this.showResults}
               className="btn btn-success btn-lg"
             >
-              Show Results
+              Відобразити результати
             </button>
 
             <button
