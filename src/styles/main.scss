@@ -1,0 +1,53 @@
+@import './custom-bootstrap';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #1e1e1e;
+  color: #000;
+}
+
+.app {
+  background-color: #87f2f2;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  margin-bottom: 1rem;
+
+  input {
+    border-radius: 0.375rem 0 0 0.375rem;
+  }
+
+  button {
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  .item {
+    padding: 10px;
+    background-color: #fce4c6;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+}
+
+.footer {
+  font-weight: bold;
+}
