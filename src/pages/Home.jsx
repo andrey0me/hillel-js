@@ -12,8 +12,6 @@ export default function Home() {
         <List>
           <ListItem>✅ SQL Server, оптимізація запитів</ListItem>
           <ListItem>✅ Power BI, Google Sheets, API інтеграції</ListItem>
-          <ListItem>✅ JavaScript, React, Redux</ListItem>
-          <ListItem>✅ Node.js, Express, MongoDB</ListItem>
         </List>
       </Box>
     </Container>
