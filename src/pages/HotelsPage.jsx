@@ -21,11 +21,17 @@ const HotelsPage = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div>
-      <h2>Available Hotels in {formData.destination || 'all destinations'}</h2>
-      {filteredHotels.map(hotel => (
-        <HotelCard key={hotel.id} hotel={hotel} />
-      ))}
+    <div className="bg-light-blue p-4 rounded shadow-sm">
+      <h2 className="text-primary mb-4">
+        Hotels in {formData.destination || 'all destinations'}
+      </h2>
+      {filteredHotels.length > 0 ? (
+        filteredHotels.map(hotel => (
+          <HotelCard key={hotel.id} hotel={hotel} />
+        ))
+      ) : (
+        <p>No hotels found for the selected destination.</p>
+      )}
     </div>
   );
 };
