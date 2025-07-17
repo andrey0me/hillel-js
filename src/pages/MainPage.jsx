@@ -3,6 +3,9 @@ import { Form, Field } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDestinationList, submitSearchForm } from '../redux/actions';
 import Spinner from '../components/Spinner';
+import {
+  Box, Typography, Button, MenuItem, TextField, Paper, Grid
+} from '@mui/material';
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -28,7 +31,6 @@ const MainPage = () => {
   };
 
   const onSubmit = (values) => {
-    localStorage.setItem('formData', JSON.stringify(values));
     dispatch(submitSearchForm(values));
   };
 
@@ -43,67 +45,117 @@ const MainPage = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div className="bg-light-blue p-4 rounded shadow-sm">
-      <h2 className="text-primary mb-4">Find a Hotel</h2>
+    <Paper sx={{ padding: 4, backgroundColor: '#f0f8ff' }}>
+      <Typography variant="h4" color="primary" gutterBottom>
+        Find a Hotel
+      </Typography>
       <Form
         onSubmit={onSubmit}
         validate={validate}
         initialValues={initial}
-        render={({ handleSubmit, touched, errors }) => (
-          <form onSubmit={handleSubmit} className="row g-3">
-            <div className="col-md-4">
-              <label className="form-label">Destination</label>
-              <Field name="destination" component="select" className="form-select">
-                <option value="" disabled hidden>Select</option>
-                {destinations
-                  .filter((d, index, self) =>
-                    index === self.findIndex(t => t.label === d.label)
-                  )
-                  .map(d => (
-                    <option key={d.id} value={d.label}>{d.label}</option>
-                  ))}
-              </Field>
-              {touched.destination && errors.destination && (
-                <div className="text-danger">{errors.destination}</div>
-              )}
-            </div>
+        render={({ handleSubmit }) => (
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Field name="destination">
+                  {({ input, meta }) => (
+                    <TextField
+                      {...input}
+                      select
+                      label="Destination"
+                      fullWidth
+                      error={meta.touched && meta.error}
+                      helperText={meta.touched && meta.error}
+                      sx={{
+                        minWidth: 250,    
+                        maxWidth: 400     
+                      }}
+                    >
+                      <MenuItem value="" disabled>Select</MenuItem>
+                      {[...new Set(destinations.map(d => d.label))].map(label => (
+                        <MenuItem key={label} value={label}>{label}</MenuItem>
+                      ))}
+                    </TextField>
+                  )}
+                </Field>
+              </Grid>
 
-            <div className="col-md-3">
-              <label className="form-label">Check-in</label>
-              <Field name="checkin" component="input" type="date" className="form-control" />
-              {touched.checkin && errors.checkin && (
-                <div className="text-danger">{errors.checkin}</div>
-              )}
-            </div>
+              <Grid item xs={12} sm={4} md={2}>
+                <Field name="checkin">
+                  {({ input, meta }) => (
+                    <TextField
+                      {...input}
+                      type="date"
+                      label="Check-in"
+                      fullWidth
+                      InputLabelProps={{ shrink: true }}
+                      error={meta.touched && meta.error}
+                      helperText={meta.touched && meta.error}
+                    />
+                  )}
+                </Field>
+              </Grid>
 
-            <div className="col-md-3">
-              <label className="form-label">Check-out</label>
-              <Field name="checkout" component="input" type="date" className="form-control" />
-              {touched.checkout && errors.checkout && (
-                <div className="text-danger">{errors.checkout}</div>
-              )}
-            </div>
+              <Grid item xs={12} sm={4} md={2}>
+                <Field name="checkout">
+                  {({ input, meta }) => (
+                    <TextField
+                      {...input}
+                      type="date"
+                      label="Check-out"
+                      fullWidth
+                      InputLabelProps={{ shrink: true }}
+                      error={meta.touched && meta.error}
+                      helperText={meta.touched && meta.error}
+                    />
+                  )}
+                </Field>
+              </Grid>
 
-            <div className="col-md-1">
-              <label className="form-label">Adults</label>
-              <Field name="adults" component="input" type="number" className="form-control" />
-              {touched.adults && errors.adults && (
-                <div className="text-danger">{errors.adults}</div>
-              )}
-            </div>
+              <Grid item xs={6} sm={3} md={1.5}>
+                <Field name="adults">
+                  {({ input, meta }) => (
+                    <TextField
+                      {...input}
+                      type="number"
+                      label="Adults"
+                      fullWidth
+                      error={meta.touched && meta.error}
+                      helperText={meta.touched && meta.error}
+                    />
+                  )}
+                </Field>
+              </Grid>
 
-            <div className="col-md-1">
-              <label className="form-label">Children</label>
-              <Field name="children" component="input" type="number" className="form-control" />
-            </div>
+              <Grid item xs={6} sm={3} md={1.5}>
+                <Field name="children">
+                  {({ input }) => (
+                    <TextField
+                      {...input}
+                      type="number"
+                      label="Children"
+                      fullWidth
+                    />
+                  )}
+                </Field>
+              </Grid>
 
-            <div className="col-12 text-end">
-              <button type="submit" className="btn btn-primary px-4">Search</button>
-            </div>
-          </form>
+              <Grid item xs={12} sm={12} md={3}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  fullWidth
+                  sx={{ height: '100%' }}
+                >
+                  Search
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
         )}
       />
-    </div>
+    </Paper>
   );
 };
 

@@ -1,25 +1,21 @@
 import React from 'react';
+import { AppBar, Toolbar, Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
-    <div className="container-fluid">
-      <NavLink className="navbar-brand" to="/">Booking</NavLink>
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/">Main</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/about">About</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/hotels">Hotels</NavLink>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <AppBar position="static" color="primary">
+    <Toolbar>
+      <Button color="inherit" component={NavLink} to="/" sx={{ mr: 2 }}>
+        Main
+      </Button>
+      <Button color="inherit" component={NavLink} to="/about" sx={{ mr: 2 }}>
+        About
+      </Button>
+      <Button color="inherit" component={NavLink} to="/hotels">
+        Hotels
+      </Button>
+    </Toolbar>
+  </AppBar>
 );
 
 export default Header;

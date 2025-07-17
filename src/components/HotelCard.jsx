@@ -1,22 +1,17 @@
 import React from 'react';
+import { Card, CardContent, Typography } from '@mui/material';
 
 const HotelCard = ({ hotel }) => (
-  <div className="card mb-3 shadow-sm">
-    <div className="card-body">
-      <h5 className="card-title text-primary">{hotel.name}</h5>
-      <p className="card-text">
-        <strong>Address:</strong> {hotel.address}, {hotel.city}
-      </p>
-      <p className="card-text">
-        <strong>Rating:</strong> {hotel.hotel_rating || 'N/A'}
-      </p>
+  <Card variant="outlined">
+    <CardContent>
+      <Typography variant="h6" color="primary">{hotel.name}</Typography>
+      <Typography><strong>Address:</strong> {hotel.address}, {hotel.city}</Typography>
+      <Typography><strong>Rating:</strong> {hotel.hotel_rating || 'N/A'}</Typography>
       {hotel.phone_number && (
-        <p className="card-text">
-          <strong>Phone:</strong> {hotel.phone_number}
-        </p>
+        <Typography><strong>Phone:</strong> {hotel.phone_number}</Typography>
       )}
-    </div>
-  </div>
+    </CardContent>
+  </Card>
 );
 
 export default HotelCard;

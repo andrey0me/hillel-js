@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getHotelsRequest } from '../redux/actions';
 import Spinner from '../components/Spinner';
 import HotelCard from '../components/HotelCard';
+import { Typography, Paper, Box } from '@mui/material';
 
 const HotelsPage = () => {
   const dispatch = useDispatch();
@@ -21,18 +22,20 @@ const HotelsPage = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div className="bg-light-blue p-4 rounded shadow-sm">
-      <h2 className="text-primary mb-4">
+    <Paper sx={{ padding: 4, backgroundColor: '#f0f8ff' }}>
+      <Typography variant="h4" color="primary" gutterBottom>
         Hotels in {formData.destination || 'all destinations'}
-      </h2>
-      {filteredHotels.length > 0 ? (
-        filteredHotels.map(hotel => (
-          <HotelCard key={hotel.id} hotel={hotel} />
-        ))
-      ) : (
-        <p>No hotels found for the selected destination.</p>
-      )}
-    </div>
+      </Typography>
+      <Box display="grid" gap={2}>
+        {filteredHotels.length > 0 ? (
+          filteredHotels.map(hotel => (
+            <HotelCard key={hotel.id} hotel={hotel} />
+          ))
+        ) : (
+          <Typography>No hotels found for the selected destination.</Typography>
+        )}
+      </Box>
+    </Paper>
   );
 };
 
